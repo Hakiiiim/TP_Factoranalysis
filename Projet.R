@@ -28,7 +28,7 @@ V <- (1/n)*t(XC)%*%XC
 
 sd <- sqrt(diag(V))
 
-#Première campagne
+#PremiÃ¨re campagne
 quantitativeC1 <- data[data$Campagne=="BF2",1:14]
 
 quantitativeC1 <- apply(quantitativeC1,2,as.numeric)
@@ -45,7 +45,7 @@ VC1 <- (1/nC1)*t(XCC1)%*%XCC1
 
 sdC1 <- sqrt(diag(VC1))
 
-#2éme campagne
+#2Ã©me campagne
 quantitativeC2 <- data[data$Campagne=="BF3",1:14]
 
 quantitativeC2 <- apply(quantitativeC2,2,as.numeric)
@@ -62,7 +62,7 @@ VC2 <- (1/nC2)*t(XCC2)%*%XCC2
 
 sdC2 <- sqrt(diag(VC2))
 
-#3éme campagne
+#3Ã©me campagne
 quantitativeC3 <- data[data$Campagne=="CA1",1:14]
 
 quantitativeC3 <- apply(quantitativeC3,2,as.numeric)
@@ -79,7 +79,7 @@ VC3 <- (1/nC3)*t(XCC3)%*%XCC3
 
 sdC3 <- sqrt(diag(VC3))
 
-#4éme campagne
+#4Ã©me campagne
 quantitativeC4 <- data[data$Campagne=="CA2",1:14]
 
 quantitativeC4 <- apply(quantitativeC4,2,as.numeric)
@@ -96,7 +96,7 @@ VC4 <- (1/nC4)*t(XCC4)%*%XCC4
 
 sdC4 <- sqrt(diag(VC4))
 
-#5éme campagne
+#5Ã©me campagne
 quantitativeC5 <- data[data$Campagne=="CA3",1:14]
 
 quantitativeC5 <- apply(quantitativeC5,2,as.numeric)
@@ -113,7 +113,7 @@ VC5 <- (1/nC5)*t(XCC5)%*%XCC5
 
 sdC5 <- sqrt(diag(VC5))
 
-#6éme campagne
+#6Ã©me campagne
 quantitativeC6 <- data[data$Campagne=="CA4",1:14]
 
 quantitativeC6 <- apply(quantitativeC6,2,as.numeric)
@@ -149,7 +149,7 @@ Vhiver <- (1/nhiver)*t(XChiver)%*%XChiver
 
 sdhiver <- sqrt(diag(Vhiver))
 
-#en été
+#en Ã©tÃ©
 quantitativeete <- data[data$SAISON=="été",1:14]
 
 quantitativeete <- apply(quantitativeete,2,as.numeric)
@@ -184,7 +184,7 @@ Vav <- (1/nav)*t(XCav)%*%XCav
 
 sdav <- sqrt(diag(Vav))
 
-#après ouverture
+#aprÃ¨s ouverture
 
 quantitativeap <- rbind(data[data$Campagne=="CA1",1:14],data[data$Campagne=="CA2",1:14],data[data$Campagne=="CA3",1:14],data[data$Campagne=="CA4",1:14])
 
@@ -231,7 +231,7 @@ rownames(M) <- c("tout","BF2","BF3","CA1","CA2","CA3","CA4")
 barplot(t(M),
         beside = TRUE,
         legend.text = TRUE,
-        ylab = "écarts-type",
+        ylab = "Ã©carts-type",
         xlab = "Campagnes")
 
 
@@ -242,14 +242,13 @@ BTM <- c(moy[10],moyhiver[10],moyete[10])
 
 M <- as.matrix(cbind(E,ane,BTM))
 colnames(M) <- c("E","14_ane","BTM")
-rownames(M) <- c("tout","Hiver","Eté")
+rownames(M) <- c("tout","Hiver","été")
 
 barplot(t(M),
         beside = TRUE,
         legend.text = TRUE,
         ylab = "moyennes",
-        xlab = "Saisons",
-        title = "moyennes en fct de la saison")
+        xlab = "Saisons")
 
 
 #ecarts-types / saison
@@ -259,14 +258,13 @@ BTM <- c(sd[10],sdhiver[10],sdete[10])
 
 M <- as.matrix(cbind(E,ane,BTM))
 colnames(M) <- c("E","14_ane","BTM")
-rownames(M) <- c("tout","Hiver","Eté")
+rownames(M) <- c("tout","Hiver","été")
 
 barplot(t(M),
         beside = TRUE,
         legend.text = TRUE,
-        ylab = "écarts-type",
-        xlab = "Saisons",
-        title = "écarts-type en fct de la saison")
+        ylab = "Ã©carts-type",
+        xlab = "Saisons")
 
 #moyenne / av,ap
 E <- c(moy[3],moyav[3],moyap[3])
@@ -275,14 +273,14 @@ BTM <- c(moy[10],moyav[10],moyap[10])
 
 M <- as.matrix(cbind(E,ane,BTM))
 colnames(M) <- c("E","14_ane","BTM")
-rownames(M) <- c("tout","Avant ouverture","Après ouverture")
+rownames(M) <- c("tout","Avant ouverture","AprÃ¨s ouverture")
 
 barplot(t(M),
         beside = TRUE,
         legend.text = TRUE,
         ylab = "moyennes",
-        xlab = "Avant/Après ouverture",
-        title = "moyennes en fct de avant/après ouverture")
+        xlab = "Avant/AprÃ¨s ouverture",
+        title = "moyennes en fct de avant/aprÃ¨s ouverture")
 
 #ecarts-type / av,ap
 E <- c(sd[3],sdav[3],sdap[3])
@@ -291,160 +289,139 @@ BTM <- c(sd[10],sdav[10],sdap[10])
 
 M <- as.matrix(cbind(E,ane,BTM))
 colnames(M) <- c("E","14_ane","BTM")
-rownames(M) <- c("tout","Avant ouverture","Après ouverture")
+rownames(M) <- c("tout","Avant ouverture","AprÃ¨s ouverture")
 
 barplot(t(M),
         beside = TRUE,
         legend.text = TRUE,
-        ylab = "écarts-type",
-        xlab = "Avant/Après ouverture",
-        title = "Ecarts-type en fct de avant/après ouverture")
+        ylab = "Ã©carts-type",
+        xlab = "Avant/AprÃ¨s ouverture",
+        title = "Ecarts-type en fct de avant/aprÃ¨s ouverture")
 
-#2
-
-#corrélogramme
-Gamma <- cor(quantitative)
-library(corrplot)
-corrplot(Gamma, type = "upper", order = "hclust", 
-         tl.col = "black", tl.srt = 45, title = "correlogramme des variables quantitatives")
-
-pairs(data[,1:14], pch = 20)
-
-
-par(mfrow=c(2,2))
-
-#hiver
-Gamma <- cor(quantitativehiver)
-corrplot(Gamma, type = "upper", order = "hclust", 
-         tl.col = "black", tl.srt = 45, title = "correlogramme en hiver")
-
-#été
-Gamma <- cor(quantitativeete)
-corrplot(Gamma, type = "upper", order = "hclust", 
-         tl.col = "black", tl.srt = 45, title = "correlogramme en été")
-
-#avant ouverture
-Gamma <- cor(quantitativeav)
-corrplot(Gamma, type = "upper", order = "hclust", 
-         tl.col = "black", tl.srt = 45, title = "correlogramme avant ouverture")
-
-
-#après ouverture
-Gamma <- cor(quantitativeap)
-corrplot(Gamma, type = "upper", order = "hclust", 
-         tl.col = "black", tl.srt = 45, title = "correlogramme après ouverture")
-
-
-#Etape 3
-
-# 7
-
-#nombre d'observations
-n <- 140
-
-# Calcul de B
-B<-(1/n)*(83*(moyhiver-moy)%*%t(moyhiver-moy)+57*(moyete-moy)%*%t(moyete-moy))
-
-# Calcul de W
-n1 <- 83
-Whiver<-(quantitativehiver-Meanhiver)
-W1<-(1/n1)*t(Whiver)%*%Whiver
-#variance intraclasse pour la modalité hiver
-
-
-n2 <- 57
-Wete<-(quantitativeete-Meanete)
-W2<-(1/n2)*t(Wete)%*%Wete
-#variance intraclasse pour la modalité été
-
-
-W<-(1/n)*(n1*W1+n2*W2)
-# variance intra classe totale
-
-#V-B-W
-#vérification de la formule : c bien vérifié
-
-#Decomposition
-C <- matrix(0,nrow=14,ncol=2)
-
-C[,1] <- sqrt(n1/n)*(moyhiver-moy)
-C[,2] <- sqrt(n2/n)*(moyete-moy)
-
-#Pour assurer la diagonalisibité
-B - C %*% t(C)
-
-#Matrice à diagonaliser
-A <- t(C) %*% solve(V) %*% C
-
-decomp1 <- eigen(A)
-values1 <- decomp1$values
-vectors1 <- decomp1$vectors
-
-vectors1 <- solve(V) %*% C %*% vectors1
-
-#Les nouvelles coordonnées des individus sur le nouveau plan factoriel
-Cord <- matrix(0,nrow=140,ncol=4)
-colnames(Cord) <- c("C1","C2","SAISON","binary")
-
-Cord <- as.data.frame(Cord)
-
-Cord[,1:2] <- quantitative %*% vectors1
-
-Cord[,3] <- data$SAISON
-
-#La colonne binaire pour différencier la couleur
-Cord[which(Cord$SAISON == "hiver"),4] <- 4
-Cord[which(Cord$SAISON == "été"),4] <- 2
-
-plot(Cord$C1,Cord$C2,col=Cord$binary)
-legend(1, y=-2e-14, legend=c("hiver", "été"),
-       col=c(4, 2), lty=1, cex=0.8)     
-
-#8
-
-# Calcul de la variance interclasse
-Bav <- (moyav-moy)%*%t(moyav-moy)
-Bap <- (moyap-moy)%*%t(moyap-moy)
-
-# Variance intraclasse deja calculée : Vav et Vap
-
-#Variance totale/inter/intra avant et après ouverture du site
-Eav <- c(V[3,3],Bav[3,3],Vav[3,3])
-Eap <- c(V[3,3],Bap[3,3],Vap[3,3])
-
-M <- as.matrix(cbind(Eav,Eap))
-colnames(M) <- c("E avant","E après")
-rownames(M) <- c("Variance totale","Variance interclasse","Variance intraclasse")
-
-barplot(t(M),
-        beside = TRUE,
-        legend.text = TRUE,
-        ylab = "Variance",
-        xlab = "Type de variance",
-        main = "Variance en fct de avant/après ouverture du site",
-        col = c(2,4))
-
-i=8
-
-Eav <- c(V[i,i],Bav[i,i],Vav[i,i])
-Eap <- c(V[i,i],Bap[i,i],Vap[i,i])
-
-M <- as.matrix(cbind(Eav,Eap))
-colnames(M) <- c("14_ane avant","14_ane après")
-rownames(M) <- c("Variance totale","Variance interclasse","Variance intraclasse")
-
-barplot(t(M),
-        beside = TRUE,
-        legend.text = TRUE,
-        ylab = "Variance",
-        xlab = "Type de variance",
-        main = "Variance en fct de avant/après ouverture du site de 14_ane",
-        col = c(2,4))
+########################
+## PARTIE 2 ##
+########################
+AnalyseACP<-function(da){
+  moy <- colMeans(da)
+  ones = rep(1, nrow(da)) 
+  Mean = ones %*% t(moy)
+  XC <- (da-Mean)
+  n <- length(da[,1])
+  library(matrixStats)
+  SD <-colSds(XC)
+  SD <- ones %*% t(SD)
+  daCR<-XC/SD
+  
+  VCR<-var(daCR)
+  ACPR<-eigen(VCR)
+  VecteursPropresR<-ACPR$vectors
+  ValeursPropresR<-ACPR$values
+  
+  
+  InertieR<-ACPR$values
+  InertieCumuleeR<-rep(0,14)
+  for (i in 1:14) {
+    InertieCumuleeR[i]<-sum(ACPR$values[1:i])
+  }
+  
+  barplot(t(as.matrix(cbind(InertieR,InertieCumuleeR))),
+          beside = TRUE,
+          legend.text = TRUE,
+          angle=TRUE,
+          ylab = "Inertie",
+          xlab = "Vecteurs Propres")
+  
+  # Projection sur les nouvelles coordonnées
+  NewdaCR <- daCR%*%VecteursPropresR
+  # print(NewdaCR)
+  
+  plot(NewdaCR[,1],NewdaCR[,2])
+  
+  # RIn = Inertie cumulée jusqu'à i / Inertie totale
+  RIn<- function(i){
+    A<-sum((ValeursPropresR))
+    B<-sum((ValeursPropresR[1:i]))
+    return(B/A)
+  }
+  print("Inertie cumulée jusqu'à i / Inertie totale")
+  print(RIn(2))
+  
+  #Definition de la fonction Q(nn,i,k) avc nn la matrice des données
+  Qual<- function(nn,i,k){
+    A<-sum((nn[i,]^2))
+    B<-sum((nn[i,1:k]^2))
+    return(B/A)
+  }
+  
+  KR<-0
+  for (j in 1:length(da[,1])) {
+    KR<-KR+Qual(NewdaCR,j,3)
+  }
+  KR<-KR/length(da[,1])
+  print("qualité des projections")
+  print(KR)
+        
+  coeffR<- function(i,j){
+    return(cor(NewdaCR[,i],daCR[,j]))
+  }
+  R<-matrix(0,14,14)
+  
+  for (i in 1:14) {
+    for (j in 1:14) {
+      R[i,j]<-coeffR(i,j)
+    }
+  }
+  # print(R)
+  
+  colnames(R) <- c("B","T","E","X","9_ane","10_ane","13_ane","14_ane","1_M_2_PA","BTM","FormicAcid","aceticacid","NonaDecanoicAc","Tot_OcNoDecana")
+  barplot(sqrt(R[1,]^2+R[2, ]^2),
+          axisnames = FALSE,
+          col=rainbow(14),
+          legend=colnames(R),
+          xlim=c(0,27),
+          ylim = c(0,1))
+  
+  # plot(NewdaCR[,1], NewdaCR[,2])
+  # library(rgl)
+  # open3d()
+  # plot3d(NewdaCR[,1], NewdaCR[,2], NewdaCR[,3],col = rainbow(140))
+  # for (i in 1:14) {
+  #   print(sqrt(sum(R[1:2,i]^2)))
+  # }
+  
+}
 
 
-BTM <- c(sd[10],sdhiver[10],sdete[10])
-aceticacid <- c(sd[12],sdhiver[12],sdete[12])
-formicacid <- c(sd[11],sdhiver[11],sdete[11])
-NonaDecanoicAc <- c(sd[13],sdhiver[13],sdete[13])
+AnalyseACP(quantitative)
 
+#Si on choisit deux axes principaux on obtient un coefficient supérieur à 66% 
+#On peut voir aussi que c'est cohérent avec la méthode du coude puisqu'on remarque un point
+#d'inflexion sur la deuxieme barre
 
+#Q5
+# On exécute une analyse ACP sur les données avant, après puis les données hiver/été.
+
+AnalyseACP(quantitativeav)
+AnalyseACP(quantitativeap)
+
+# On remarque que Inertie cumulée jusqu'à 2 / Inertie totale est supériere à 66%
+# On peut voir à partir du dernier graphe une difference entre les données avant et les
+# données après:
+# Remarques:
+# - Avant: B et 14_ane ont un petit pourcentage alors qu'après elles represente presque toute la totalité
+# # des données.
+# - Après: aceticacid est très petit et NonaDecanoicAc et FormicAcid depassent à peine la moitié
+# alors qu'avant il avaient un pourcentage assez grand.
+
+# On peut dire que les pourcentages de aceticacid ,NonaDecanoicAc ,FormicAcid ,B et 14_ane
+# forment une signature des données après et avant.
+AnalyseACP(quantitativeete)
+AnalyseACP(quantitativehiver)
+
+# Remarques:
+# - En été: FormicAcid ,aceticacid  ont un très petit pourcentage
+# alors qu'en hiver elles representent presque la moitié données.
+# - En hivee: NonaDecanoicAc et Tot_OcNoDecana deviennent plus petit par rapport à l'été
+
+# On peut dire que les pourcentages de FormicAcid ,aceticacid, NonaDecanoicAc
+# et Tot_OcNoDecana forment une signature des données en été et en hiver.
