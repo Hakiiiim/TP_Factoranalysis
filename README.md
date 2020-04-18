@@ -9,4 +9,4 @@ A pdf file named "Rapport_ournames" represents the report we wrote using a Markd
 
 Project.r is like a draft where we try all of our work before assigning it to the Markdown file.
 
-<img src="Figures/1.jpg">
+<img src="1.jpg">
