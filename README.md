@@ -8,3 +8,5 @@ A pdf file named TP4 contains the materials of the practical work (it is in Fren
 A pdf file named "Rapport_ournames" represents the report we wrote using a Markdown file which is also in the repository.
 
 Project.r is like a draft where we try all of our work before assigning it to the Markdown file.
+
+<img src="Figures/1.jpg">
