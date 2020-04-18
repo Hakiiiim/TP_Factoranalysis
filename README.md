@@ -9,4 +9,7 @@ A pdf file named "Rapport_ournames" represents the report we wrote using a Markd
 
 Project.r is like a draft where we try all of our work before assigning it to the Markdown file.
 
-<img src="1.jpg">
+<figure>
+  <img src="1.jpg" alt="1">
+  <figcaption>Fig - Prediction of the type of  two measurement sites based on all other quantitative and qualitative variables</figcaption>
+</figure>
